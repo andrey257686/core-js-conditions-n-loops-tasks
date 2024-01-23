@@ -545,6 +545,9 @@ function shuffleChar(str, iterations) {
     }
     tempStr = `${leftPart}${rightPart}`;
     tempIters -= 1;
+    if (tempStr === str) {
+      tempIters = iterations % (iterations - tempIters);
+    }
   }
   return tempStr;
 }
@@ -575,7 +578,6 @@ function getNearestBigger(number) {
   }
   arr.sort((a, b) => b - a);
   const etalon = arr.join('');
-  console.log(etalon);
   for (let i = number + 1; i < etalon; i += 1) {
     let tempI = i;
     const tempArr = [];
